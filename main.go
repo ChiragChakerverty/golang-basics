@@ -24,7 +24,7 @@ func main(){
 			PrintReasonOfInvalidation(isNameValid , isEmailValid , isUserTicketValid)
 		}
 	
-		fmt.Println("All Userdata of the bookings done is :" , bookings)
+		fmt.Println("All userdata of the bookings done is:" , bookings)
 
 		if remainingTickets <=0 {
 			break
@@ -32,7 +32,7 @@ func main(){
 	}
 
 	FirstNames := giveFirstNames(bookings)
-	fmt.Println("All the firstnames of the people who booked the tickets are are :" , FirstNames)
+	fmt.Println("All the firstnames of the people who booked the tickets are :" , FirstNames)
 }
 
 
