@@ -27,6 +27,7 @@ func main(){
 		
 		if (userInputValid) {
 			bookings = PrintBookingDetails(FirstName , LastName , email , &UserTickets , &remainingTickets , bookings)
+			go sendTicket(FirstName , email , &UserTickets)
 		} else {
 			PrintReasonOfInvalidation(isNameValid , isEmailValid , isUserTicketValid)
 		}

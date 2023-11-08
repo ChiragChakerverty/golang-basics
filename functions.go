@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strings"
+	"time"
 )
 
 func greetUsers(ConferenceName string , numberOfTickets int , remainingTickets int) {
@@ -85,4 +86,15 @@ func PrintReasonOfInvalidation (isNameValid bool , isEmailValid bool , isUserTic
 		fmt.Println("Number of tickets you are asking for is not available")
 	}
 	fmt.Println("Please try again")
+}
+
+func sendTicket (FirstName string , email string , UserTickets *int) {
+
+	fmt.Println("####################")
+	fmt.Println("Sending ticket")
+	fmt.Println("####################")
+
+	time.Sleep(10*time.Second)
+	fmt.Printf("\n")
+	fmt.Println(FirstName , "has recieved" , *UserTickets,"tickets at",email)
 }
