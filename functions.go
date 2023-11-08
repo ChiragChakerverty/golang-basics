@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
 	"strings"
 )
 
@@ -33,10 +32,10 @@ func takingUserInput() (string , string , string , int) {
 	return FirstName , LastName , email , UserTickets
 }
 
-func giveFirstNames(bookings []map[string]string) []string {
+func giveFirstNames(bookings []UserData) []string {
 	var FirstNames[] string
 		for _,booking := range bookings {
-			FirstNames = append(FirstNames , booking["FirstName"])
+			FirstNames = append(FirstNames , booking.FirstName)
 		} 
 	return FirstNames
 }
@@ -50,18 +49,25 @@ func isUserInputValid (FirstName string, LastName string, email string, UserTick
 		return isNameValid,isEmailValid,isUserTicketValid,userInputValid
 }
 
-func PrintBookingDetails(FirstName string, LastName string, email string, UserTickets *int, remainingTickets *int,bookings []map[string]string) []map[string]string {
+func PrintBookingDetails(FirstName string, LastName string, email string, UserTickets *int, remainingTickets *int,bookings []UserData) []UserData {
 
-	UserData := make(map[string]string) // making a map to store user data 
-	UserData["FirstName"] = FirstName
-	UserData["LastName"] = LastName
-	UserData["email"] = email
-	UserData["NumberOfTickets"] = strconv.FormatInt(int64(*UserTickets),10)
+	// UserData := make(map[string]string) // making a map to store user data 
+	// UserData["FirstName"] = FirstName
+	// UserData["LastName"] = LastName
+	// UserData["email"] = email
+	// UserData["NumberOfTickets"] = strconv.FormatInt(int64(*UserTickets),10)
+
+	userData := UserData {
+		FirstName: FirstName,
+		LastName: LastName,
+		email:email,
+		numberOfTickets:*UserTickets,
+	}
 
 	fmt.Println("Thank you" , FirstName , LastName , "for booking" , *UserTickets , "tickets. You will receive a confirmation mail at" , email)
 			*remainingTickets = *remainingTickets - *UserTickets
 			fmt.Println("Now" , *remainingTickets , "tickets are left")
-			bookings = append(bookings, UserData)
+			bookings = append(bookings, userData)
 
 		return bookings // in order to have the change in bookings
 }

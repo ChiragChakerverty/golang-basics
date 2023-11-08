@@ -4,12 +4,19 @@ import (
 	"fmt"
 )
 
+type UserData struct {
+	FirstName string
+	LastName string
+	email string
+	numberOfTickets int
+}
+
 func main(){
 
 	ConferenceName := "Ted Talk"
 	const numberOfTickets = 50
 	remainingTickets := 50
-	var bookings = make([]map[string]string , 0)
+	var bookings = make([]UserData, 0)
 
 	greetUsers(ConferenceName , numberOfTickets , remainingTickets)
 
